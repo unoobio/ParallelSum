@@ -52,7 +52,7 @@
             return totalSum;
         }
 
-        public static double SumWithParallelLINQ(List<double> numbers, int batchesCount)
+        public static double SumWithTPL(List<double> numbers, int batchesCount)
         {
             int batchCount = numbers.Count / batchesCount + 1;
 
@@ -66,6 +66,12 @@
                     totalSum += batchSum;
                 }
             });
+            return totalSum;
+        }
+
+        public static double SumWithPLINQ(List<double> numbers)
+        {
+            double totalSum = numbers.AsParallel().Sum();
             return totalSum;
         }
 

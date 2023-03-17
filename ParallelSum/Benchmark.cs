@@ -51,9 +51,15 @@ namespace ParallelSum
         [Arguments(2)]
         [Arguments(4)]
         [Arguments(8)]
-        public void SumWithParallelLINQ(int batchesCount)
+        public void SumWithTPL(int batchesCount)
         {
-            SumCalculator.SumWithParallelLINQ(NumbersCollection, batchesCount);
+            SumCalculator.SumWithTPL(NumbersCollection, batchesCount);
+        }
+
+        [Benchmark]
+        public void SumWithPLINQ()
+        {
+            SumCalculator.SumWithPLINQ(NumbersCollection);
         }
 
         [Benchmark]
